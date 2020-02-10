@@ -10,9 +10,10 @@ module.exports = {
         library: "",
         libraryTarget: "commonjs",
     },
-    externals: [nodeExternals(), "styled-components"],
+    externals: [nodeExternals(), "react", "react-dom", "styled-components"],
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.js$/,
                 exclude: /(node_modules)/,
                 loader: "babel-loader",
@@ -27,8 +28,14 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
-            }
+                use: [
+                    "style-loader",
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "postcss-loader",
+                    "sass-loader",
+                ],
+            },
         ],
     },
 };
